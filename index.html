@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Leo's World ⭐ Leo's Wereld</title>
+<title>Leo's World &#x2B50; Leo's Wereld</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
 <style>
@@ -26,7 +26,7 @@ h1{font-family:'Fredoka One',cursive;font-size:2.6rem;color:#fff;text-shadow:0 3
 .voice-btn{background:var(--bg);border:2px solid #F0E6D0;border-radius:30px;padding:4px 14px;font-size:0.82rem;font-weight:800;cursor:pointer;}
 .voice-btn.on{background:#E8F5E9;border-color:#66BB6A;color:#2E7D32;}
 nav.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;padding:1.2rem 0.9rem 0.4rem;max-width:720px;margin:0 auto;}
-.mcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:0.85rem 0.3rem;text-align:center;cursor:pointer;border:3px solid transparent;transition:transform 0.12s,border-color 0.15s;user-select:none;touch-action: manipulation;}
+.mcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:0.85rem 0.3rem;text-align:center;cursor:pointer;border:3px solid transparent;transition:transform 0.12s,border-color 0.15s;user-select:none;}
 .mcard:active{transform:scale(0.93);}
 .mcard.on{border-color:#FF8A65;}
 .mcard .ico{font-size:2.3rem;line-height:1;}
@@ -41,11 +41,11 @@ nav.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));
 .qhint{font-size:0.88rem;font-weight:800;color:var(--soft);text-align:center;margin-bottom:0.5rem;}
 .qhint .nl{color:var(--grape);font-style:italic;}
 .question{font-family:'Fredoka One',cursive;font-size:2rem;color:var(--text);text-align:center;margin:0.4rem 0 1rem;line-height:1.3;}
-.objects{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0.6rem 0 1rem;font-size:2rem;}
+.objects{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0.6rem 0 1rem;}
 .obj{font-size:2.4rem;user-select:none;animation:pop 0.3s ease both;}
 @keyframes pop{from{transform:scale(0.4);opacity:0;}to{transform:scale(1);opacity:1;}}
 .answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:340px;}
-.ans{background:var(--bg);border:2.5px solid #E0D0C0;border-radius:var(--r);padding:14px 8px;font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--text);cursor:pointer;text-align:center;transition:transform 0.1s,background 0.1s;line-height:1.2;touch-action: manipulation;}
+.ans{background:var(--bg);border:2.5px solid #E0D0C0;border-radius:var(--r);padding:14px 8px;font-family:'Fredoka One',cursive;font-size:1.6rem;color:var(--text);cursor:pointer;text-align:center;transition:transform 0.1s,background 0.1s;line-height:1.2;}
 .ans:active{transform:scale(0.94);}
 .ans.ok{background:#E8F5E9;border-color:#66BB6A;color:#2E7D32;}
 .ans.no{background:#FFEBEE;border-color:#EF5350;color:#B71C1C;}
@@ -64,10 +64,12 @@ nav.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));
 .colans.no{background:#FFEBEE;border-color:#EF5350;}
 .mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:400px;margin:0.5rem 0;}
 .mem-card{aspect-ratio:1;border-radius:var(--r);border:2.5px solid #E0D0C0;background:linear-gradient(135deg,#4FC3F7,#0288D1);font-size:2rem;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none;transition:transform 0.15s;}
+.mem-card:active{transform:scale(0.92);}
 .mem-card .front{display:none;}
 .mem-card.flip .front{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
 .mem-card.flip{background:#fff;}
 .mem-card.matched{background:#E8F5E9;border-color:#66BB6A;cursor:default;}
+.mem-status{font-size:0.88rem;font-weight:800;color:var(--soft);margin-bottom:0.5rem;}
 .big-compare{display:flex;gap:1.5rem;justify-content:center;align-items:flex-end;margin:0.5rem 0 1.2rem;width:100%;}
 .big-side{text-align:center;}
 .big-num{font-family:'Fredoka One',cursive;font-size:1.8rem;margin-top:6px;}
@@ -85,69 +87,760 @@ nav.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));
 .pat-blank{font-size:1.6rem;width:56px;height:56px;background:var(--bg);border:3px dashed #C0B0A0;border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--soft);}
 .pat-answers{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:0.5rem;}
 .pat-ans{font-size:2.4rem;width:64px;height:64px;background:#fff;border:2.5px solid #E0D0C0;border-radius:var(--r);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.1s;}
+.pat-ans:active{transform:scale(0.92);}
 .pat-ans.ok{background:#E8F5E9;border-color:#66BB6A;}
 .pat-ans.no{background:#FFEBEE;border-color:#EF5350;}
 .odd-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:340px;width:100%;margin:0.5rem 0 1rem;}
-.odd-btn{background:#fff;border:2.5px solid #E0D0C0;border-radius:var(--r);padding:18px 8px;font-size:2.6rem;text-align:center;cursor:pointer;transition:transform 0.1s;touch-action: manipulation;}
+.odd-btn{background:#fff;border:2.5px solid #E0D0C0;border-radius:var(--r);padding:18px 8px;font-size:2.6rem;text-align:center;cursor:pointer;transition:transform 0.1s;}
+.odd-btn:active{transform:scale(0.92);}
 .odd-btn.ok{background:#E8F5E9;border-color:#66BB6A;}
 .odd-btn.no{background:#FFEBEE;border-color:#EF5350;}
+.sort-wrap{width:100%;max-width:400px;}
+.sort-hint{font-size:0.78rem;font-weight:800;color:var(--soft);text-align:center;margin-bottom:0.5rem;}
 .sort-slots{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0.5rem 0 1rem;}
 .sort-slot{width:64px;height:64px;border:3px dashed #C0B0A0;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:2rem;background:var(--bg);}
 .sort-slot.filled{border-style:solid;border-color:#66BB6A;background:#E8F5E9;}
 .sort-choices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 .sort-choice{font-size:2.2rem;width:60px;height:60px;background:#fff;border:2.5px solid #E0D0C0;border-radius:var(--r);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.1s;font-family:'Fredoka One',cursive;}
+.sort-choice:active{transform:scale(0.9);}
 .sort-choice.used{opacity:0.25;pointer-events:none;}
+.match-wrap{width:100%;max-width:420px;}
 .match-row{display:flex;gap:12px;justify-content:center;margin:0.5rem 0;flex-wrap:wrap;}
 .match-item{min-width:64px;height:64px;border:2.5px solid #E0D0C0;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:1.6rem;cursor:pointer;background:#fff;transition:transform 0.1s,border-color 0.1s;padding:4px 8px;font-family:'Fredoka One',cursive;}
+.match-item:active{transform:scale(0.92);}
 .match-item.selected{border-color:#FF8A65;background:#FFF3E0;}
 .match-item.matched-ok{border-color:#66BB6A;background:#E8F5E9;cursor:default;}
 .match-item.matched-no{border-color:#EF5350;background:#FFEBEE;}
+.paint-wrap{width:100%;max-width:500px;display:flex;flex-direction:column;align-items:center;}
+.stencil-row{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:0.5rem;}
+.stencil-btn{background:#fff;border:2.5px solid #E0D0C0;border-radius:var(--r);padding:5px 10px;font-size:0.85rem;font-weight:800;cursor:pointer;color:var(--text);transition:transform 0.1s;}
+.stencil-btn:active{transform:scale(0.9);}
+.stencil-btn.active-stencil{border-color:#9575CD;background:#EDE7F6;color:#512DA8;}
+.paint-tools{display:flex;gap:7px;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:0.6rem;}
+.paint-colour{width:32px;height:32px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:transform 0.1s;flex-shrink:0;}
+.paint-colour:active{transform:scale(0.88);}
+.paint-colour.active-col{border-color:#2A2A2A;transform:scale(1.18);}
+.brush-sizes{display:flex;gap:5px;align-items:center;}
+.bsz{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #E0D0C0;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.bsz.active-sz{border-color:#FF8A65;background:#FFF3E0;}
+.bsz-dot{background:#2A2A2A;border-radius:50%;}
 canvas#paintCanvas{border-radius:var(--r);box-shadow:var(--sh);touch-action:none;cursor:crosshair;border:2.5px solid #E0D0C0;background:#fff;max-width:100%;}
-@media(max-width:420px){h1{font-size:2rem;}.mcard .ico{font-size:2rem;}.question{font-size:1.6rem;}.obj{font-size:2rem;}.ans{font-size:1.3rem;padding:11px 6px;}}
+.paint-btns{display:flex;gap:10px;margin-top:8px;}
+.paint-tool-btn{background:#fff;border:2px solid #E0D0C0;border-radius:20px;padding:6px 14px;font-size:0.8rem;font-weight:800;cursor:pointer;color:var(--text);}
+.paint-tool-btn.active-tool{background:#FFF3E0;border-color:#FF8A65;}
+@media(max-width:420px){h1{font-size:2rem;}.mcard .ico{font-size:2rem;}.question{font-size:1.6rem;}.obj{font-size:2rem;}.ans{font-size:1.3rem;padding:11px 6px;}.mem-grid{gap:5px;}.nxtbtn{padding:10px 24px;}.pat-item,.pat-ans{font-size:2rem;}.odd-btn{font-size:2.2rem;padding:14px 6px;}}
+@media(min-width:600px){h1{font-size:3rem;}.panel{padding:2rem 2rem 2.5rem;}}
 </style>
 </head>
 <body>
 <header>
   <div class="sun-deco"></div>
-  <div class="cloud1">☁️</div>
-  <div class="cloud2">☁️</div>
-  <h1>⭐ Leo's World ⭐</h1>
-  <p class="subtitle">Learn & Play • Leren & Spelen</p>
+  <div class="cloud1">&#x2601;&#xFE0F;</div>
+  <div class="cloud2">&#x2601;&#xFE0F;</div>
+  <h1>&#x2B50; Leo's World &#x2B50;</h1>
+  <p class="subtitle">Learn &amp; Play &bull; Leren &amp; Spelen</p>
 </header>
 <div class="starbar">
-  <div class="star-display" id="starDisplay">⭐</div>
+  <div class="star-display" id="starDisplay">&#x2B50;</div>
   <div class="pill">Sterren: <b id="scoreVal">0</b></div>
   <div class="pill">Goed: <b id="correctVal">0</b></div>
-  <button class="voice-btn on" id="voiceToggle" onclick="toggleVoice()">🔊 Geluid aan</button>
+  <div class="pill">Pogingen: <b id="triedVal">0</b></div>
+  <button class="voice-btn on" id="voiceToggle" onclick="toggleVoice()">&#x1F50A; Geluid aan</button>
 </div>
 <nav class="menu">
-  <div class="mcard" id="mc-pattern" onclick="pick('pattern')"><div class="ico">🧩</div><div class="lbl">Patroon!</div><div class="nlbl">What's next?</div></div>
-  <div class="mcard" id="mc-oddone" onclick="pick('oddone')"><div class="ico">🤔</div><div class="lbl">Vreemd!</div><div class="nlbl">Odd one out</div></div>
-  <div class="mcard" id="mc-sort" onclick="pick('sort')"><div class="ico">📏</div><div class="lbl">Sorteer!</div><div class="nlbl">Small to big</div></div>
-  <div class="mcard" id="mc-matchpair" onclick="pick('matchpair')"><div class="ico">🔀</div><div class="lbl">Combineer!</div><div class="nlbl">Match pairs</div></div>
-  <div class="mcard" id="mc-colour" onclick="pick('colour')"><div class="ico">🎨</div><div class="lbl">Kleuren!</div><div class="nlbl">Guess colour</div></div>
-  <div class="mcard" id="mc-bigger" onclick="pick('bigger')"><div class="ico">🐘</div><div class="lbl">Groter!</div><div class="nlbl">Which is more?</div></div>
-  <div class="mcard" id="mc-science" onclick="pick('science')"><div class="ico">🌤️</div><div class="lbl">Wetenschap!</div><div class="nlbl">Science fun</div></div>
-  <div class="mcard" id="mc-add" onclick="pick('add')"><div class="ico">➕</div><div class="lbl">Optellen!</div><div class="nlbl">Add numbers</div></div>
+  <div class="mcard" id="mc-pattern"   onclick="pick('pattern')"  ><div class="ico">&#x1F9E9;</div><div class="lbl">Patroon!</div>   <div class="nlbl">What's next?</div></div>
+  <div class="mcard" id="mc-oddone"    onclick="pick('oddone')"   ><div class="ico">&#x1F914;</div><div class="lbl">Vreemd!</div>    <div class="nlbl">Odd one out</div></div>
+  <div class="mcard" id="mc-sort"      onclick="pick('sort')"     ><div class="ico">&#x1F4CF;</div><div class="lbl">Sorteer!</div>   <div class="nlbl">Small to big</div></div>
+  <div class="mcard" id="mc-matchpair" onclick="pick('matchpair')"><div class="ico">&#x1F500;</div><div class="lbl">Combineer!</div><div class="nlbl">Match pairs</div></div>
+  <div class="mcard" id="mc-colour"    onclick="pick('colour')"   ><div class="ico">&#x1F3A8;</div><div class="lbl">Kleuren!</div>   <div class="nlbl">Guess colour</div></div>
+  <div class="mcard" id="mc-paint"     onclick="pick('paint')"    ><div class="ico">&#x1F58C;&#xFE0F;</div><div class="lbl">Schilder!</div><div class="nlbl">Paint &amp; draw</div></div>
+  <div class="mcard" id="mc-memory"    onclick="pick('memory')"   ><div class="ico">&#x1F9E0;</div><div class="lbl">Geheugen!</div>  <div class="nlbl">Memory pairs</div></div>
+  <div class="mcard" id="mc-bigger"    onclick="pick('bigger')"   ><div class="ico">&#x1F418;</div><div class="lbl">Groter!</div>    <div class="nlbl">Which is more?</div></div>
+  <div class="mcard" id="mc-science"   onclick="pick('science')"  ><div class="ico">&#x1F324;&#xFE0F;</div><div class="lbl">Wetenschap!</div><div class="nlbl">Science fun</div></div>
+  <div class="mcard" id="mc-add"       onclick="pick('add')"      ><div class="ico">&#x2795;</div><div class="lbl">Optellen!</div>  <div class="nlbl">Add numbers</div></div>
 </nav>
-
 <main class="arena">
-  <div class="panel" id="panel-welcome"><div class="welcome"><div class="big">👆</div><p>Kies een spel hierboven!<br><span style="color:var(--grape)">Pick a game above!</span></p></div></div>
-  
+  <div class="panel" id="panel-welcome"><div class="welcome"><div class="big">&#x1F446;</div><p>Kies een spel hierboven!<br><span style="color:var(--grape)">Pick a game above!</span></p></div></div>
   <div class="panel hide" id="panel-pattern">
     <div class="qhint">Wat komt hierna? <span class="nl">What comes next?</span></div>
     <div class="pattern-row" id="pat-row"></div>
     <div class="pat-answers" id="pat-answers"></div>
     <div class="feedback" id="pattern-fb"></div>
-    <button class="nxtbtn" id="pattern-next" style="display:none" onclick="render('pattern')">Volgende ➔</button>
+    <button class="nxtbtn" id="pattern-next" style="display:none" onclick="render('pattern')">Volgende &#x279C;</button>
   </div>
-
   <div class="panel hide" id="panel-oddone">
     <div class="qhint">Welke hoort er NIET bij? <span class="nl">Which one does NOT belong?</span></div>
     <div class="odd-grid" id="odd-grid"></div>
     <div class="feedback" id="oddone-fb"></div>
-    <button class="nxtbtn" id="oddone-next" style="display:none" onclick="render('oddone')">Volgende ➔</button>
+    <button class="nxtbtn" id="oddone-next" style="display:none" onclick="render('oddone')">Volgende &#x279C;</button>
   </div>
-
   <div class="panel hide" id="panel-sort">
-    <div class="qhint">Van klein naar groot! <span class="nl">Small
+    <div class="qhint">Van klein naar groot! <span class="nl">Small to big! Tap in order.</span></div>
+    <div class="sort-wrap">
+      <div class="sort-hint">Tik in de goede volgorde &bull; Tap in the right order</div>
+      <div class="sort-slots" id="sort-slots"></div>
+      <div class="sort-choices" id="sort-choices"></div>
+    </div>
+    <div class="feedback" id="sort-fb"></div>
+    <button class="nxtbtn" id="sort-next" style="display:none" onclick="render('sort')">Volgende &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-matchpair">
+    <div class="qhint">Combineer dezelfde! <span class="nl">Match the same ones!</span></div>
+    <div class="match-wrap" id="match-wrap"></div>
+    <div class="feedback" id="matchpair-fb"></div>
+    <button class="nxtbtn" id="matchpair-next" style="display:none" onclick="render('matchpair')">Volgende &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-colour">
+    <div class="qhint">Welke kleur is dit? <span class="nl">What colour is this?</span></div>
+    <div class="colour-target" id="col-swatch"></div>
+    <div class="colanswers" id="col-answers"></div>
+    <div class="feedback" id="colour-fb"></div>
+    <button class="nxtbtn" id="colour-next" style="display:none" onclick="render('colour')">Volgende &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-paint">
+    <div class="qhint">Schilder met je vinger! <span class="nl">Paint with your finger!</span></div>
+    <div class="paint-wrap">
+      <div class="stencil-row" id="stencil-row"></div>
+      <div class="paint-tools" id="paint-tools"></div>
+      <canvas id="paintCanvas" width="440" height="308"></canvas>
+      <div class="paint-btns">
+        <button class="paint-tool-btn" onclick="clearCanvas()">&#x1F5D1; Wissen / Clear</button>
+        <button class="paint-tool-btn" id="eraserBtn" onclick="toggleEraser()">&#x26AA; Gum / Eraser</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel hide" id="panel-memory">
+    <div class="qhint">Vind de paren! <span class="nl">Find the pairs!</span></div>
+    <div class="mem-status" id="mem-status">Paren gevonden: 0 / 8</div>
+    <div class="mem-grid" id="mem-grid"></div>
+    <div class="feedback" id="memory-fb"></div>
+    <button class="nxtbtn" id="memory-next" style="display:none" onclick="render('memory')">Opnieuw &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-bigger">
+    <div class="qhint">Welke is MEER? <span class="nl">Which is MORE?</span></div>
+    <div class="big-compare" id="big-compare"></div>
+    <div class="answers" id="big-answers"></div>
+    <div class="feedback" id="bigger-fb"></div>
+    <button class="nxtbtn" id="bigger-next" style="display:none" onclick="render('bigger')">Volgende &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-science">
+    <div class="qhint">Wetenschap! <span class="nl">Science!</span></div>
+    <div class="sci-q" id="sci-q"></div>
+    <div class="sci-nl" id="sci-nl"></div>
+    <div class="sci-answers" id="sci-answers"></div>
+    <div class="feedback" id="science-fb"></div>
+    <button class="nxtbtn" id="science-next" style="display:none" onclick="render('science')">Volgende &#x279C;</button>
+  </div>
+  <div class="panel hide" id="panel-add">
+    <div class="qhint">Tel de getallen op! <span class="nl">Add the numbers!</span></div>
+    <div class="question" id="add-q"></div>
+    <div class="objects" id="add-objects"></div>
+    <div class="answers" id="add-answers"></div>
+    <div class="feedback" id="add-fb"></div>
+    <button class="nxtbtn" id="add-next" style="display:none" onclick="render('add')">Volgende &#x279C;</button>
+  </div>
+</main>
+<script>
+
+var voiceOn=true, synth=window.speechSynthesis, dutchVoice=null;
+function loadVoices(){
+  var v=synth.getVoices();
+  dutchVoice=v.find(function(x){return x.lang.startsWith('nl');})||v.find(function(x){return x.lang.startsWith('en');})||null;
+}
+if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged=loadVoices;
+setTimeout(loadVoices,500);
+
+function speak(t){
+  if(!voiceOn||!synth) return;
+  synth.cancel();
+  var u=new SpeechSynthesisUtterance(t);
+  if(dutchVoice) u.voice=dutchVoice;
+  u.lang='nl-NL'; u.rate=0.82; u.pitch=1.1;
+  synth.speak(u);
+}
+function toggleVoice(){
+  voiceOn=!voiceOn;
+  var b=document.getElementById('voiceToggle');
+  b.textContent=voiceOn?'\ud83d\udd0a Geluid aan':'\ud83d\udd07 Geluid uit';
+  b.className=voiceOn?'voice-btn on':'voice-btn';
+  if(voiceOn) speak('Geluid aan!');
+}
+var PRAISE=['Goed zo!','Super gedaan!','Wauw, geweldig!','Jij bent slim!','Heel goed Leo!','Fantastisch!','Bravo!','Uitstekend!'];
+var TRYAGAIN=['Probeer het nog een keer!','Bijna goed, probeer opnieuw!','Niet erg, probeer het nog eens!'];
+function praiseVoice(){speak(PRAISE[Math.floor(Math.random()*PRAISE.length)]);}
+function tryAgainVoice(){speak(TRYAGAIN[Math.floor(Math.random()*TRYAGAIN.length)]);}
+
+function em(cp){return String.fromCodePoint(cp);}
+var E={
+  apple:em(0x1F34E), star:em(0x1F31F), banana:em(0x1F34C), frog:em(0x1F438),
+  butterfly:em(0x1F98B), dog:em(0x1F436), train:em(0x1F682), soccer:em(0x26BD),
+  pizza:em(0x1F355), cat:em(0x1F431), lion:em(0x1F981), rainbow:em(0x1F308),
+  icecream:em(0x1F366), sun:em(0x2600), moon:em(0x1F31A), fish:em(0x1F41F),
+  bird:em(0x1F426), car:em(0x1F697), rocket:em(0x1F680), heart:em(0x2764),
+  cake:em(0x1F370), duck:em(0x1F986), elephant:em(0x1F418), penguin:em(0x1F427),
+  rabbit:em(0x1F430), bear:em(0x1F43B), turtle:em(0x1F422),
+  strawberry:em(0x1F353), grape:em(0x1F347), watermelon:em(0x1F349),
+  rc:em(0x1F534), bc:em(0x1F535), gc:em(0x1F7E2), yc:em(0x1F7E1),
+  pc:em(0x1F7E3), oc:em(0x1F7E0), tri:em(0x1F53A), sq:em(0x1F7E5)
+};
+
+var COLOURS=[
+  {en:'Red',    nl:'Rood',   hex:'#EF5350'},
+  {en:'Blue',   nl:'Blauw',  hex:'#42A5F5'},
+  {en:'Green',  nl:'Groen',  hex:'#66BB6A'},
+  {en:'Yellow', nl:'Geel',   hex:'#FFD54F'},
+  {en:'Orange', nl:'Oranje', hex:'#FF8A65'},
+  {en:'Purple', nl:'Paars',  hex:'#9575CD'},
+  {en:'Pink',   nl:'Roze',   hex:'#F06292'},
+  {en:'Brown',  nl:'Bruin',  hex:'#A1887F'}
+];
+
+var SCIENCE=[
+  {nl:'Wat zie je in de nacht?', en:'What do you see at night?', a:'Stars',
+   opts:[{en:'Stars',nl:'Sterren'},{en:'Fish',nl:'Vissen'},{en:'Cars',nl:'Autos'},{en:'Bread',nl:'Brood'}]},
+  {nl:'Wat geeft ons licht en warmte?', en:'What gives us light and warmth?', a:'Sun',
+   opts:[{en:'Moon',nl:'Maan'},{en:'Sun',nl:'Zon'},{en:'Wind',nl:'Wind'},{en:'Rain',nl:'Regen'}]},
+  {nl:'Waar leven vissen?', en:'Where do fish live?', a:'Water',
+   opts:[{en:'Tree',nl:'Boom'},{en:'Sky',nl:'Lucht'},{en:'Water',nl:'Water'},{en:'Sand',nl:'Zand'}]},
+  {nl:'Wat hebben planten nodig?', en:'What do plants need to grow?', a:'Water',
+   opts:[{en:'Water',nl:'Water'},{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Stone',nl:'Steen'}]},
+  {nl:'Welk dier heeft een lange nek?', en:'Which animal has a long neck?', a:'Giraffe',
+   opts:[{en:'Elephant',nl:'Olifant'},{en:'Giraffe',nl:'Giraffe'},{en:'Dog',nl:'Hond'},{en:'Cat',nl:'Kat'}]},
+  {nl:'Welke kleur heeft gras?', en:'What colour is grass?', a:'Green',
+   opts:[{en:'Blue',nl:'Blauw'},{en:'Red',nl:'Rood'},{en:'Green',nl:'Groen'},{en:'Yellow',nl:'Geel'}]},
+  {nl:'Wat valt als het regent?', en:'What falls from the sky when it rains?', a:'Water',
+   opts:[{en:'Milk',nl:'Melk'},{en:'Water',nl:'Water'},{en:'Sand',nl:'Zand'},{en:'Leaves',nl:'Bladeren'}]},
+  {nl:'Welk dier zegt miauw?', en:'Which animal says meow?', a:'Cat',
+   opts:[{en:'Dog',nl:'Hond'},{en:'Cat',nl:'Kat'},{en:'Cow',nl:'Koe'},{en:'Bird',nl:'Vogel'}]},
+  {nl:'Hoeveel poten heeft een hond?', en:'How many legs does a dog have?', a:'4',
+   opts:[{en:'2',nl:'2'},{en:'4',nl:'4'},{en:'6',nl:'6'},{en:'8',nl:'8'}]},
+  {nl:'Hoe noemen we bevroren water?', en:'What do we call frozen water?', a:'Ice',
+   opts:[{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Gas',nl:'Gas'},{en:'Steam',nl:'Stoom'}]},
+  {nl:'Welke kleur heeft de lucht?', en:'What colour is the sky during the day?', a:'Blue',
+   opts:[{en:'Blue',nl:'Blauw'},{en:'Red',nl:'Rood'},{en:'Green',nl:'Groen'},{en:'Pink',nl:'Roze'}]},
+  {nl:'Welk dier kan vliegen?', en:'Which animal can fly?', a:'Bird',
+   opts:[{en:'Fish',nl:'Vis'},{en:'Bird',nl:'Vogel'},{en:'Dog',nl:'Hond'},{en:'Frog',nl:'Kikker'}]},
+  {nl:'Wat eet een konijn graag?', en:'What does a rabbit like to eat?', a:'Carrot',
+   opts:[{en:'Pizza',nl:'Pizza'},{en:'Carrot',nl:'Wortel'},{en:'Cake',nl:'Taart'},{en:'Fish',nl:'Vis'}]},
+  {nl:'Hoeveel seizoenen zijn er?', en:'How many seasons are in a year?', a:'4',
+   opts:[{en:'2',nl:'2'},{en:'3',nl:'3'},{en:'4',nl:'4'},{en:'5',nl:'5'}]}
+];
+
+var MEM_SET=[
+  E.apple, E.frog, E.star, E.train, E.butterfly, E.rainbow,
+  E.dog, E.cat, E.sun, E.rocket, E.cake, E.heart,
+  E.elephant, E.penguin, E.duck, E.turtle
+];
+
+var PATTERNS=[
+  {seq:[E.rc,E.bc,E.rc,E.bc],         ans:E.rc,  opts:[E.rc,E.gc,E.yc]},
+  {seq:[E.apple,E.apple,E.banana,E.apple,E.apple], ans:E.banana, opts:[E.banana,E.apple,E.strawberry]},
+  {seq:[E.star,E.moon,E.star,E.moon],  ans:E.star, opts:[E.star,E.sun,E.moon]},
+  {seq:[E.rc,E.rc,E.bc,E.rc,E.rc],    ans:E.bc,  opts:[E.bc,E.rc,E.gc]},
+  {seq:[E.dog,E.cat,E.dog,E.cat],      ans:E.dog, opts:[E.dog,E.bird,E.fish]},
+  {seq:[E.apple,E.banana,E.apple,E.banana], ans:E.apple, opts:[E.apple,E.strawberry,E.grape]},
+  {seq:[E.sun,E.moon,E.sun,E.moon],    ans:E.sun, opts:[E.sun,E.star,E.rainbow]},
+  {seq:[E.gc,E.yc,E.gc,E.yc],         ans:E.gc,  opts:[E.gc,E.bc,E.yc]}
+];
+
+var ODD_SETS=[
+  {items:[E.dog,E.cat,E.bird,E.apple],           odd:3},
+  {items:[E.apple,E.banana,E.strawberry,E.train], odd:3},
+  {items:[E.rc,E.bc,E.gc,E.dog],                 odd:3},
+  {items:[E.car,E.train,E.rocket,E.fish],         odd:3},
+  {items:[E.cat,E.dog,E.rabbit,E.soccer],         odd:3},
+  {items:[E.apple,E.banana,E.car,E.grape],        odd:2},
+  {items:[E.sun,E.moon,E.star,E.fish],            odd:3},
+  {items:[E.pizza,E.cake,E.apple,E.lion],         odd:3},
+  {items:[E.elephant,E.lion,E.bear,E.icecream],   odd:3}
+];
+
+var SORT_SETS=[
+  {items:[{e:em(0x1F42D),size:0},{e:em(0x1F408),size:1},{e:em(0x1F98A),size:2},{e:E.elephant,size:3}]},
+  {items:[{e:E.apple,size:1},{e:E.watermelon,size:3},{e:E.banana,size:2},{e:E.grape,size:0}]},
+  {items:[{e:'3',size:2},{e:'1',size:0},{e:'4',size:3},{e:'2',size:1}]},
+  {items:[{e:em(0x1F422),size:0},{e:em(0x1F430),size:1},{e:em(0x1F436),size:2},{e:E.elephant,size:3}]}
+];
+
+var MATCH_SETS=[
+  {pairs:[{a:E.rc,b:'Rood'},{a:E.bc,b:'Blauw'},{a:E.gc,b:'Groen'},{a:E.yc,b:'Geel'}]},
+  {pairs:[{a:'1',b:E.apple},{a:'2',b:E.apple+E.apple},{a:'3',b:E.apple+E.apple+E.apple}]},
+  {pairs:[{a:E.sun,b:'Zon'},{a:E.moon,b:'Maan'},{a:E.star,b:'Ster'},{a:E.rainbow,b:'Boog'}]},
+  {pairs:[{a:E.dog,b:'Hond'},{a:E.cat,b:'Kat'},{a:E.fish,b:'Vis'},{a:E.bird,b:'Vogel'}]}
+];
+
+// STATE
+var score=0, correct=0, tried=0;
+var currentGame=null, currentAnswer=null, answered=false;
+var memFlipped=[], memMatched=[], memCards=[], memLock=false;
+var sortOrder=[], sortFilled=[], sortItems=[];
+var matchSelected=null, matchMatched=[], mpPairs=[];
+var paintColor='#EF5350', paintSize=12, isErasing=false, isPainting=false, activeStencil='free';
+
+// UTILS
+function shuffle(a){
+  var b=a.slice();
+  for(var i=b.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=b[i];b[i]=b[j];b[j]=t;}
+  return b;
+}
+function rnd(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function updateUI(){
+  document.getElementById('scoreVal').textContent=score;
+  document.getElementById('correctVal').textContent=correct;
+  document.getElementById('triedVal').textContent=tried;
+  var n=Math.min(5,Math.max(1,score<2?1:score<5?2:score<9?3:score<14?4:5));
+  document.getElementById('starDisplay').textContent=em(0x2B50).repeat(n);
+}
+function showNext(id){
+  var nb=document.getElementById(id+'-next');
+  if(nb) nb.style.display='block';
+}
+function setFb(id,ok){
+  var el=document.getElementById(id+'-fb');
+  if(ok){el.textContent=em(0x1F389)+' Goed zo! Great job!'; el.className='feedback ok'; praiseVoice();}
+  else{el.textContent=em(0x1F499)+' Probeer opnieuw! Try again!'; el.className='feedback no'; tryAgainVoice();}
+}
+function afterAnswer(id,ok){
+  if(answered) return;
+  answered=true; tried++;
+  if(ok){score++; correct++;}
+  updateUI(); setFb(id,ok); showNext(id);
+}
+function makeOpts(c,n,mn,mx){
+  var s=[c],t=0;
+  while(s.length<n&&t<50){
+    var v=c+[-3,-2,-1,1,2,3][rnd(0,5)];
+    if(v>=mn&&v<=mx&&s.indexOf(v)<0) s.push(v);
+    t++;
+  }
+  while(s.length<n){var r=rnd(mn,mx); if(s.indexOf(r)<0) s.push(r);}
+  return s;
+}
+
+// NAVIGATION
+var ALL=['pattern','oddone','sort','matchpair','colour','paint','memory','bigger','science','add'];
+function pick(g){
+  document.querySelectorAll('.mcard').forEach(function(c){c.classList.remove('on');});
+  document.getElementById('mc-'+g).classList.add('on');
+  currentGame=g;
+  render(g);
+}
+function render(g){
+  ALL.forEach(function(x){document.getElementById('panel-'+x).classList.add('hide');});
+  document.getElementById('panel-welcome').classList.add('hide');
+  document.getElementById('panel-'+g).classList.remove('hide');
+  answered=false; currentAnswer=null;
+  var fns={pattern:renderPattern,oddone:renderOddOne,sort:renderSort,matchpair:renderMatchPair,colour:renderColour,paint:renderPaint,memory:renderMemory,bigger:renderBigger,science:renderScience,add:renderAdd};
+  if(fns[g]) fns[g]();
+}
+
+// PATTERN
+function renderPattern(){
+  var p=PATTERNS[rnd(0,PATTERNS.length-1)];
+  currentAnswer=p.ans;
+  var html='';
+  for(var i=0;i<p.seq.length;i++) html+='<span class="pat-item">'+p.seq[i]+'</span>';
+  html+='<span class="pat-blank">?</span>';
+  document.getElementById('pat-row').innerHTML=html;
+  var opts=shuffle(p.opts);
+  var ahtml='';
+  for(var j=0;j<opts.length;j++){
+    ahtml+='<div class="pat-ans" data-ans="'+j+'" onclick="checkPat(this)">'+opts[j]+'</div>';
+  }
+  document.getElementById('pat-answers').innerHTML=ahtml;
+  document.getElementById('pat-answers')._opts=opts;
+  document.getElementById('pattern-fb').textContent='';
+  document.getElementById('pattern-fb').className='feedback';
+  document.getElementById('pattern-next').style.display='none';
+  speak('Wat komt hierna?');
+}
+function checkPat(el){
+  if(answered) return;
+  var opts=document.getElementById('pat-answers')._opts;
+  var idx=parseInt(el.getAttribute('data-ans'));
+  var ok=(opts[idx]===currentAnswer);
+  el.classList.add(ok?'ok':'no');
+  if(!ok){
+    var all=document.querySelectorAll('#pat-answers .pat-ans');
+    for(var i=0;i<all.length;i++){if(opts[parseInt(all[i].getAttribute('data-ans'))]===currentAnswer) all[i].classList.add('ok');}
+  }
+  afterAnswer('pattern',ok);
+}
+
+// ODD ONE OUT
+function renderOddOne(){
+  var set=ODD_SETS[rnd(0,ODD_SETS.length-1)];
+  currentAnswer=set.odd;
+  var html='';
+  for(var i=0;i<set.items.length;i++) html+='<div class="odd-btn" data-idx="'+i+'" onclick="checkOdd(this)">'+set.items[i]+'</div>';
+  document.getElementById('odd-grid').innerHTML=html;
+  document.getElementById('oddone-fb').textContent='';
+  document.getElementById('oddone-fb').className='feedback';
+  document.getElementById('oddone-next').style.display='none';
+  speak('Welke hoort er niet bij?');
+}
+function checkOdd(el){
+  if(answered) return;
+  var idx=parseInt(el.getAttribute('data-idx'));
+  var ok=(idx===currentAnswer);
+  el.classList.add(ok?'ok':'no');
+  if(!ok) document.querySelectorAll('#odd-grid .odd-btn')[currentAnswer].classList.add('ok');
+  afterAnswer('oddone',ok);
+}
+
+// SORT
+function renderSort(){
+  var set=SORT_SETS[rnd(0,SORT_SETS.length-1)];
+  var sorted=set.items.slice().sort(function(a,b){return a.size-b.size;});
+  sortOrder=sorted.map(function(i){return i.e;});
+  sortFilled=[];
+  sortItems=shuffle(set.items);
+  var slotHtml='';
+  for(var i=0;i<sortOrder.length;i++) slotHtml+='<div class="sort-slot" id="slot-'+i+'"></div>';
+  document.getElementById('sort-slots').innerHTML=slotHtml;
+  var choiceHtml='';
+  for(var j=0;j<sortItems.length;j++) choiceHtml+='<div class="sort-choice" id="sch-'+j+'" data-idx="'+j+'" onclick="pickSort(this)">'+sortItems[j].e+'</div>';
+  document.getElementById('sort-choices').innerHTML=choiceHtml;
+  document.getElementById('sort-fb').textContent='';
+  document.getElementById('sort-fb').className='feedback';
+  document.getElementById('sort-next').style.display='none';
+  speak('Zet ze van klein naar groot!');
+}
+function pickSort(el){
+  if(answered) return;
+  var ci=parseInt(el.getAttribute('data-idx'));
+  var emoji=sortItems[ci].e;
+  var pos=sortFilled.length;
+  sortFilled.push(emoji);
+  var slot=document.getElementById('slot-'+pos);
+  slot.textContent=emoji; slot.classList.add('filled');
+  el.classList.add('used');
+  if(sortFilled.length===sortOrder.length){
+    var ok=true;
+    for(var i=0;i<sortFilled.length;i++) if(sortFilled[i]!==sortOrder[i]){ok=false;break;}
+    answered=true; tried++;
+    if(ok){score++; correct++;}
+    updateUI(); setFb('sort',ok); showNext('sort');
+  }
+}
+
+// MATCH PAIR
+function renderMatchPair(){
+  var set=MATCH_SETS[rnd(0,MATCH_SETS.length-1)];
+  mpPairs=set.pairs;
+  matchSelected=null; matchMatched=[];
+  var L=shuffle(set.pairs.map(function(p){return p.a;}));
+  var R=shuffle(set.pairs.map(function(p){return p.b;}));
+  var html='<div class="match-row">';
+  for(var i=0;i<L.length;i++) html+='<div class="match-item" data-side="left" data-idx="'+i+'" data-val="'+i+'" onclick="selectMatch(this)">'+L[i]+'</div>';
+  html+='</div><div style="text-align:center;font-size:0.78rem;font-weight:800;color:var(--soft);margin:8px 0;">&#x2195; Combineer / Match</div><div class="match-row">';
+  for(var j=0;j<R.length;j++) html+='<div class="match-item" data-side="right" data-idx="'+j+'" data-val="'+j+'" onclick="selectMatch(this)">'+R[j]+'</div>';
+  html+='</div>';
+  document.getElementById('match-wrap').innerHTML=html;
+  document.getElementById('match-wrap')._L=L;
+  document.getElementById('match-wrap')._R=R;
+  document.getElementById('matchpair-fb').textContent='';
+  document.getElementById('matchpair-fb').className='feedback';
+  document.getElementById('matchpair-next').style.display='none';
+  speak('Combineer dezelfde!');
+}
+function selectMatch(el){
+  if(el.classList.contains('matched-ok')) return;
+  var side=el.getAttribute('data-side');
+  var idx=parseInt(el.getAttribute('data-idx'));
+  var wrap=document.getElementById('match-wrap');
+  var L=wrap._L, R=wrap._R;
+  if(matchSelected){
+    if(matchSelected.el===el){el.classList.remove('selected');matchSelected=null;return;}
+    if(matchSelected.side===side){matchSelected.el.classList.remove('selected');el.classList.add('selected');matchSelected={el:el,side:side,idx:idx};return;}
+    var li=side==='right'?matchSelected.idx:idx;
+    var ri=side==='right'?idx:matchSelected.idx;
+    var lv=L[li], rv=R[ri];
+    var ok=mpPairs.some(function(p){return (p.a===lv&&p.b===rv)||(p.a===rv&&p.b===lv);});
+    if(ok){
+      el.classList.add('matched-ok'); matchSelected.el.classList.add('matched-ok');
+      matchSelected.el.classList.remove('selected');
+      matchMatched.push(1); matchSelected=null;
+      if(matchMatched.length===mpPairs.length){tried++;score++;correct++;updateUI();setFb('matchpair',true);showNext('matchpair');}
+    } else {
+      var ea=el,eb=matchSelected.el; matchSelected=null;
+      ea.classList.add('matched-no'); eb.classList.add('matched-no');
+      setTimeout(function(){ea.classList.remove('matched-no');eb.classList.remove('matched-no','selected');},700);
+    }
+  } else {
+    el.classList.add('selected');
+    matchSelected={el:el,side:side,idx:idx};
+  }
+}
+
+// COLOUR
+function renderColour(){
+  var c=COLOURS[rnd(0,COLOURS.length-1)];
+  currentAnswer=c.en;
+  document.getElementById('col-swatch').style.background=c.hex;
+  var others=COLOURS.filter(function(x){return x.en!==c.en;}).sort(function(){return Math.random()-0.5;}).slice(0,3);
+  var opts=shuffle([c].concat(others));
+  var html='';
+  for(var i=0;i<opts.length;i++){
+    html+='<div class="colans" data-en="'+opts[i].en+'" style="background:'+opts[i].hex+'22;" onclick="checkColour(this)">';
+    html+='<span style="font-size:1rem;font-weight:800;">'+opts[i].en+'</span>';
+    html+='<span class="nl">'+opts[i].nl+'</span></div>';
+  }
+  document.getElementById('col-answers').innerHTML=html;
+  document.getElementById('colour-fb').textContent='';
+  document.getElementById('colour-fb').className='feedback';
+  document.getElementById('colour-next').style.display='none';
+  speak('Welke kleur is dit?');
+}
+function checkColour(el){
+  if(answered) return;
+  var val=el.getAttribute('data-en');
+  var ok=(val===currentAnswer);
+  el.classList.add(ok?'ok':'no');
+  if(!ok){
+    var all=document.querySelectorAll('#panel-colour .colans');
+    for(var i=0;i<all.length;i++) if(all[i].getAttribute('data-en')===currentAnswer) all[i].classList.add('ok');
+  }
+  afterAnswer('colour',ok);
+}
+
+// SCIENCE
+function renderScience(){
+  var q=SCIENCE[rnd(0,SCIENCE.length-1)];
+  currentAnswer=q.a;
+  document.getElementById('sci-q').textContent=q.en;
+  document.getElementById('sci-nl').textContent=q.nl;
+  var opts=shuffle(q.opts);
+  var html='';
+  for(var i=0;i<opts.length;i++){
+    html+='<div class="scians" data-en="'+opts[i].en+'" onclick="checkSci(this)">'+opts[i].en+'<span class="nl">'+opts[i].nl+'</span></div>';
+  }
+  document.getElementById('sci-answers').innerHTML=html;
+  document.getElementById('science-fb').textContent='';
+  document.getElementById('science-fb').className='feedback';
+  document.getElementById('science-next').style.display='none';
+  speak(q.nl);
+}
+function checkSci(el){
+  if(answered) return;
+  var val=el.getAttribute('data-en');
+  var ok=(val===currentAnswer);
+  el.classList.add(ok?'ok':'no');
+  if(!ok){
+    var all=document.querySelectorAll('#panel-science .scians');
+    for(var i=0;i<all.length;i++) if(all[i].getAttribute('data-en')===currentAnswer) all[i].classList.add('ok');
+  }
+  afterAnswer('science',ok);
+}
+
+// BIGGER
+function renderBigger(){
+  var a=rnd(1,9),b=rnd(1,9);
+  while(b===a) b=rnd(1,9);
+  currentAnswer=Math.max(a,b);
+  var elist=Object.values(E);
+  var emoji=elist[rnd(0,14)];
+  var fsa=Math.round(16+a*3.5), fsb=Math.round(16+b*3.5);
+  document.getElementById('big-compare').innerHTML=
+    '<div class="big-side"><div style="font-size:'+fsa+'px">'+emoji+'</div><div class="big-num">'+a+'</div></div>'+
+    '<div class="vs">vs</div>'+
+    '<div class="big-side"><div style="font-size:'+fsb+'px">'+emoji+'</div><div class="big-num">'+b+'</div></div>';
+  var opts=shuffle([a,b]);
+  var html='';
+  for(var i=0;i<opts.length;i++) html+='<div class="ans" data-n="'+opts[i]+'" onclick="checkNum(this,\'bigger\')">'+opts[i]+'</div>';
+  document.getElementById('big-answers').innerHTML=html;
+  document.getElementById('bigger-fb').textContent='';
+  document.getElementById('bigger-fb').className='feedback';
+  document.getElementById('bigger-next').style.display='none';
+  speak('Welke is meer?');
+}
+
+// ADD
+function renderAdd(){
+  var a=rnd(1,6), b=rnd(1,6);
+  currentAnswer=a+b;
+  var opts=shuffle(makeOpts(a+b,4,1,12));
+  document.getElementById('add-q').textContent=a+' + '+b+' = ?';
+  var ob=document.getElementById('add-objects');
+  ob.innerHTML='';
+  var elist=Object.values(E);
+  var e1=elist[rnd(0,10)], e2=elist[rnd(0,10)];
+  for(var i=0;i<a;i++){var s=document.createElement('span');s.className='obj';s.textContent=e1;s.style.animationDelay=(i*0.06)+'s';ob.appendChild(s);}
+  var plus=document.createElement('span');plus.style.cssText='font-size:1.8rem;color:var(--soft);padding:0 4px;';plus.textContent='+';ob.appendChild(plus);
+  for(var j=0;j<b;j++){var s2=document.createElement('span');s2.className='obj';s2.textContent=e2;s2.style.animationDelay=((a+j)*0.06)+'s';ob.appendChild(s2);}
+  var html='';
+  for(var k=0;k<opts.length;k++) html+='<div class="ans" data-n="'+opts[k]+'" onclick="checkNum(this,\'add\')">'+opts[k]+'</div>';
+  document.getElementById('add-answers').innerHTML=html;
+  document.getElementById('add-fb').textContent='';
+  document.getElementById('add-fb').className='feedback';
+  document.getElementById('add-next').style.display='none';
+  speak('Tel de getallen op! '+a+' plus '+b);
+}
+
+function checkNum(el,id){
+  if(answered) return;
+  var val=parseInt(el.getAttribute('data-n'));
+  var ok=(val===currentAnswer);
+  el.classList.add(ok?'ok':'no');
+  if(!ok){
+    var all=document.querySelectorAll('#panel-'+id+' .ans');
+    for(var i=0;i<all.length;i++) if(parseInt(all[i].getAttribute('data-n'))===currentAnswer) all[i].classList.add('ok');
+  }
+  afterAnswer(id,ok);
+}
+
+// MEMORY
+function renderMemory(){
+  memFlipped=[]; memMatched=[]; memLock=false;
+  var chosen=shuffle(MEM_SET.slice()).slice(0,8);
+  var pairs=shuffle(chosen.concat(chosen));
+  memCards=pairs;
+  document.getElementById('mem-status').textContent='Paren gevonden: 0 / 8';
+  document.getElementById('memory-fb').textContent='';
+  document.getElementById('memory-fb').className='feedback';
+  document.getElementById('memory-next').style.display='none';
+  var html='';
+  for(var i=0;i<pairs.length;i++) html+='<div class="mem-card" data-i="'+i+'" onclick="flipCard(this)"><div class="front">'+pairs[i]+'</div></div>';
+  document.getElementById('mem-grid').innerHTML=html;
+  speak('Vind de paren!');
+}
+function flipCard(el){
+  var i=parseInt(el.getAttribute('data-i'));
+  if(memLock||memFlipped.indexOf(i)>=0||memMatched.indexOf(i)>=0) return;
+  el.classList.add('flip');
+  memFlipped.push(i);
+  if(memFlipped.length===2){
+    memLock=true;
+    var a=memFlipped[0], b=memFlipped[1];
+    var ea=document.querySelector('.mem-card[data-i="'+a+'"]');
+    var eb=document.querySelector('.mem-card[data-i="'+b+'"]');
+    if(memCards[a]===memCards[b]){
+      memMatched.push(a,b);
+      ea.classList.add('matched'); eb.classList.add('matched');
+      memFlipped=[]; memLock=false;
+      var found=memMatched.length/2;
+      document.getElementById('mem-status').textContent='Paren gevonden: '+found+' / 8';
+      if(memMatched.length===16){
+        score+=3; correct+=3; tried++; updateUI();
+        var fb=document.getElementById('memory-fb');
+        fb.textContent=em(0x1F389)+em(0x1F389)+' Alle paren gevonden!';
+        fb.className='feedback ok';
+        document.getElementById('memory-next').style.display='block';
+        praiseVoice();
+      }
+    } else {
+      setTimeout(function(){
+        ea.classList.remove('flip'); eb.classList.remove('flip');
+        memFlipped=[]; memLock=false;
+      },900);
+    }
+  }
+}
+
+// PAINT
+var PAINT_COLOURS=['#EF5350','#FF8A65','#FFD54F','#66BB6A','#42A5F5','#9575CD','#F06292','#4DB6AC','#795548','#212121','#FFFFFF'];
+var STENCILS=[{name:'Vrij',key:'free'},{name:'Ster',key:'star'},{name:'Zon',key:'sun'},{name:'Hart',key:'heart'},{name:'Vis',key:'fish'},{name:'Boom',key:'tree'},{name:'Huis',key:'house'}];
+
+function renderPaint(){
+  activeStencil='free'; paintColor='#EF5350'; isErasing=false;
+  var shtml='';
+  for(var i=0;i<STENCILS.length;i++){
+    shtml+='<button class="stencil-btn'+(STENCILS[i].key==='free'?' active-stencil':'')+'" data-key="'+STENCILS[i].key+'" onclick="setStencil(this)">'+STENCILS[i].name+'</button>';
+  }
+  document.getElementById('stencil-row').innerHTML=shtml;
+  var phtml='';
+  for(var j=0;j<PAINT_COLOURS.length;j++){
+    phtml+='<div class="paint-colour'+(j===0?' active-col':'')+'" data-col="'+PAINT_COLOURS[j]+'" style="background:'+PAINT_COLOURS[j]+';" onclick="setPaintColor(this)"></div>';
+  }
+  phtml+='<div class="brush-sizes">';
+  phtml+='<div class="bsz active-sz" data-sz="8" onclick="setPaintSize(this)"><div class="bsz-dot" style="width:8px;height:8px;"></div></div>';
+  phtml+='<div class="bsz" data-sz="16" onclick="setPaintSize(this)"><div class="bsz-dot" style="width:14px;height:14px;"></div></div>';
+  phtml+='<div class="bsz" data-sz="24" onclick="setPaintSize(this)"><div class="bsz-dot" style="width:20px;height:20px;"></div></div>';
+  phtml+='</div>';
+  document.getElementById('paint-tools').innerHTML=phtml;
+  var canvas=document.getElementById('paintCanvas');
+  var pw=Math.min(window.innerWidth-60,460);
+  canvas.width=pw; canvas.height=Math.round(pw*0.7);
+  clearCanvas();
+  setupPaintEvents(canvas);
+  speak('Schilder iets moois!');
+}
+function setStencil(btn){
+  activeStencil=btn.getAttribute('data-key');
+  document.querySelectorAll('.stencil-btn').forEach(function(b){b.classList.remove('active-stencil');});
+  btn.classList.add('active-stencil');
+  clearCanvas();
+}
+function setPaintColor(el){
+  paintColor=el.getAttribute('data-col'); isErasing=false;
+  document.getElementById('eraserBtn').classList.remove('active-tool');
+  document.querySelectorAll('.paint-colour').forEach(function(b){b.classList.remove('active-col');});
+  el.classList.add('active-col');
+}
+function setPaintSize(el){
+  paintSize=parseInt(el.getAttribute('data-sz'));
+  document.querySelectorAll('.bsz').forEach(function(b){b.classList.remove('active-sz');});
+  el.classList.add('active-sz');
+}
+function toggleEraser(){
+  isErasing=!isErasing;
+  document.getElementById('eraserBtn').classList.toggle('active-tool',isErasing);
+}
+function clearCanvas(){
+  var cv=document.getElementById('paintCanvas');
+  var ctx=cv.getContext('2d');
+  ctx.fillStyle='#fff'; ctx.fillRect(0,0,cv.width,cv.height);
+  if(activeStencil!=='free') drawStencilGuide(cv,ctx);
+}
+function drawStencilGuide(cv,ctx){
+  var w=cv.width,h=cv.height,cx=w/2,cy=h/2,r=Math.min(w,h)*0.35;
+  ctx.strokeStyle='#D0C0B0'; ctx.lineWidth=3; ctx.setLineDash([8,5]);
+  ctx.beginPath();
+  if(activeStencil==='star'){
+    for(var i=0;i<5;i++){
+      var a=Math.PI/2+i*(2*Math.PI/5), a2=a+Math.PI/5;
+      if(i===0) ctx.moveTo(cx+r*Math.cos(a),cy-r*Math.sin(a));
+      else ctx.lineTo(cx+r*Math.cos(a),cy-r*Math.sin(a));
+      ctx.lineTo(cx+(r*0.4)*Math.cos(a2),cy-(r*0.4)*Math.sin(a2));
+    }
+    ctx.closePath();
+  } else if(activeStencil==='heart'){
+    ctx.moveTo(cx,cy+r*0.6);
+    ctx.bezierCurveTo(cx-r,cy-r*0.2,cx-r,cy-r*0.8,cx,cy-r*0.2);
+    ctx.bezierCurveTo(cx+r,cy-r*0.8,cx+r,cy-r*0.2,cx,cy+r*0.6);
+  } else if(activeStencil==='sun'){
+    ctx.arc(cx,cy,r*0.5,0,Math.PI*2); ctx.stroke(); ctx.beginPath();
+    for(var j=0;j<8;j++){var b=j*(Math.PI/4);ctx.moveTo(cx+Math.cos(b)*r*0.62,cy+Math.sin(b)*r*0.62);ctx.lineTo(cx+Math.cos(b)*r,cy+Math.sin(b)*r);}
+  } else if(activeStencil==='fish'){
+    ctx.ellipse(cx-r*0.1,cy,r*0.55,r*0.3,0,0,Math.PI*2); ctx.stroke(); ctx.beginPath();
+    ctx.moveTo(cx+r*0.5,cy); ctx.lineTo(cx+r,cy-r*0.3); ctx.lineTo(cx+r,cy+r*0.3); ctx.closePath();
+  } else if(activeStencil==='tree'){
+    ctx.moveTo(cx,cy-r); ctx.lineTo(cx+r*0.7,cy+r*0.3); ctx.lineTo(cx-r*0.7,cy+r*0.3); ctx.closePath();
+    ctx.stroke(); ctx.beginPath(); ctx.rect(cx-r*0.15,cy+r*0.3,r*0.3,r*0.4);
+  } else if(activeStencil==='house'){
+    ctx.moveTo(cx,cy-r*0.7); ctx.lineTo(cx+r*0.7,cy); ctx.lineTo(cx+r*0.7,cy+r*0.7);
+    ctx.lineTo(cx-r*0.7,cy+r*0.7); ctx.lineTo(cx-r*0.7,cy); ctx.closePath();
+  }
+  ctx.stroke(); ctx.setLineDash([]);
+}
+function getPos(e,cv){
+  var rect=cv.getBoundingClientRect(), sx=cv.width/rect.width, sy=cv.height/rect.height;
+  if(e.touches) return{x:(e.touches[0].clientX-rect.left)*sx,y:(e.touches[0].clientY-rect.top)*sy};
+  return{x:(e.clientX-rect.left)*sx,y:(e.clientY-rect.top)*sy};
+}
+function setupPaintEvents(cv){
+  cv.onmousedown=cv.ontouchstart=function(e){e.preventDefault();isPainting=true;var ctx=cv.getContext('2d'),p=getPos(e,cv);ctx.beginPath();ctx.moveTo(p.x,p.y);};
+  cv.onmousemove=cv.ontouchmove=function(e){
+    e.preventDefault(); if(!isPainting) return;
+    var ctx=cv.getContext('2d'),p=getPos(e,cv);
+    ctx.lineWidth=isErasing?paintSize*2.5:paintSize; ctx.lineCap='round'; ctx.lineJoin='round';
+    ctx.strokeStyle=isErasing?'#fff':paintColor;
+    ctx.lineTo(p.x,p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x,p.y);
+  };
+  cv.onmouseup=cv.ontouchend=function(){isPainting=false;};
+  cv.onmouseleave=function(){isPainting=false;};
+}
+
+</script>
+</body>
+</html>
