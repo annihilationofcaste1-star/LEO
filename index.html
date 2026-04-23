@@ -243,20 +243,43 @@ canvas#paintCanvas{border-radius:var(--r);box-shadow:var(--sh);touch-action:none
 <script>
 
 var voiceOn=true, synth=window.speechSynthesis, dutchVoice=null;
+var voiceUnlocked=false;
+
 function loadVoices(){
   var v=synth.getVoices();
-  dutchVoice=v.find(function(x){return x.lang.startsWith('nl');})||v.find(function(x){return x.lang.startsWith('en');})||null;
+  if(v.length===0) return; // not ready yet
+  dutchVoice=v.find(function(x){return x.lang.startsWith('nl');})||
+             v.find(function(x){return x.lang.startsWith('en');})||null;
 }
+// Chrome fires onvoiceschanged; Safari has voices immediately or after a delay
 if(synth.onvoiceschanged!==undefined) synth.onvoiceschanged=loadVoices;
-setTimeout(loadVoices,500);
+loadVoices();
+setTimeout(loadVoices,200);
+setTimeout(loadVoices,1000);
+
+// Safari requires a silent utterance on first user gesture to unlock audio
+function unlockVoice(){
+  if(voiceUnlocked) return;
+  voiceUnlocked=true;
+  loadVoices();
+  var u=new SpeechSynthesisUtterance('');
+  u.volume=0;
+  synth.speak(u);
+}
+document.addEventListener('touchstart', unlockVoice, {once:true});
+document.addEventListener('click', unlockVoice, {once:true});
 
 function speak(t){
   if(!voiceOn||!synth) return;
+  loadVoices(); // reload in case not ready earlier
+  // Safari bug: speech gets stuck after ~30s - cancel and small delay fixes it
   synth.cancel();
-  var u=new SpeechSynthesisUtterance(t);
-  if(dutchVoice) u.voice=dutchVoice;
-  u.lang='nl-NL'; u.rate=0.82; u.pitch=1.1;
-  synth.speak(u);
+  setTimeout(function(){
+    var u=new SpeechSynthesisUtterance(t);
+    if(dutchVoice) u.voice=dutchVoice;
+    u.lang='nl-NL'; u.rate=0.82; u.pitch=1.1;
+    synth.speak(u);
+  }, 50);
 }
 function toggleVoice(){
   voiceOn=!voiceOn;
