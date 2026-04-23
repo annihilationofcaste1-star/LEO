@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Leo's World 🌟 Leo's Wereld</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & ROOT ===== */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{
+  --sky:#4FC3F7;--sun:#FFD54F;--grass:#66BB6A;
+  --berry:#F06292;--grape:#9575CD;--orange:#FF8A65;
+  --mint:#4DB6AC;--red:#EF5350;--blue:#42A5F5;
+  --bg:#FFF9F0;--card:#FFFFFF;--text:#2A2A2A;--soft:#777;
+  --r:18px;--rxl:28px;--sh:0 4px 18px rgba(0,0,0,0.10);
+}
+html{font-size:17px;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(160deg,#29B6F6 0%,#81D4FA 60%,#B3E5FC 100%);
+  padding:1.2rem 1rem 2rem;text-align:center;position:relative;overflow:hidden;
+}
+header::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:36px;
+  background:var(--bg);border-radius:60% 60% 0 0 / 36px 36px 0 0;
+}
+.sun-deco{position:absolute;top:-20px;right:-20px;width:100px;height:100px;background:#FFD54F;border-radius:50%;opacity:0.35;}
+.cloud1{position:absolute;top:14px;left:20px;font-size:2rem;opacity:0.5;animation:float 4s ease-in-out infinite;}
+.cloud2{position:absolute;top:8px;right:100px;font-size:1.4rem;opacity:0.4;animation:float 5s ease-in-out infinite reverse;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+h1{font-family:'Fredoka One',cursive;font-size:2.6rem;color:#fff;text-shadow:0 3px 0 rgba(0,0,0,0.12);line-height:1;}
+.subtitle{font-size:0.92rem;color:rgba(255,255,255,0.92);font-weight:700;margin-top:4px;letter-spacing:0.5px;}
+
+/* ===== STAR BAR ===== */
+.starbar{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#fff;border-bottom:2px solid #F0E6D0;
+  padding:0.55rem 1rem;flex-wrap:wrap;
+}
+.star-display{font-size:1.5rem;letter-spacing:3px;}
+.pill{background:var(--bg);border:2px solid #F0E6D0;border-radius:30px;padding:3px 14px;font-size:0.82rem;font-weight:800;}
+.pill b{color:#E64A19;}
+
+/* ===== GAME MENU ===== */
+nav.menu{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:10px;padding:1.2rem 0.9rem 0.4rem;max-width:660px;margin:0 auto;
+}
+.mcard{
+  background:#fff;border-radius:var(--r);box-shadow:var(--sh);
+  padding:0.9rem 0.4rem;text-align:center;cursor:pointer;
+  border:3px solid transparent;transition:transform 0.12s,border-color 0.15s;
+  user-select:none;
+}
+.mcard:active{transform:scale(0.93);}
+.mcard.on{border-color:#FF8A65;}
+.mcard .ico{font-size:2.6rem;line-height:1;}
+.mcard .lbl{font-family:'Fredoka One',cursive;font-size:0.95rem;margin-top:5px;}
+.mcard .nlbl{font-size:0.68rem;color:var(--soft);font-weight:700;margin-top:1px;}
+
+/* ===== GAME PANEL ===== */
+.arena{max-width:660px;margin:0.9rem auto 3rem;padding:0 0.9rem;}
+.panel{
+  background:#fff;border-radius:var(--rxl);box-shadow:var(--sh);
+  padding:1.6rem 1.2rem 2rem;min-height:320px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.panel.hide{display:none;}
+.welcome{text-align:center;padding:2rem 0;}
+.welcome .big{font-size:3rem;}
+.welcome p{font-size:1rem;color:var(--soft);font-weight:700;margin-top:0.5rem;line-height:1.6;}
+
+/* ===== QUESTION CARD ===== */
+.qhint{font-size:0.88rem;font-weight:800;color:var(--soft);text-align:center;margin-bottom:0.5rem;}
+.qhint .nl{color:var(--grape);font-style:italic;}
+.question{
+  font-family:'Fredoka One',cursive;font-size:2rem;color:var(--text);
+  text-align:center;margin:0.4rem 0 1rem;line-height:1.3;
+}
+.objects{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0.6rem 0 1rem;}
+.obj{font-size:2.4rem;user-select:none;animation:pop 0.3s ease both;}
+@keyframes pop{from{transform:scale(0.4);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+/* ===== ANSWER BUTTONS ===== */
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:340px;}
+.ans{
+  background:var(--bg);border:2.5px solid #E0D0C0;border-radius:var(--r);
+  padding:14px 8px;font-family:'Fredoka One',cursive;font-size:1.6rem;
+  color:var(--text);cursor:pointer;text-align:center;
+  transition:transform 0.1s,background 0.1s;line-height:1.2;
+}
+.ans .anl{font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:700;color:var(--soft);display:block;margin-top:2px;}
+.ans:active{transform:scale(0.94);}
+.ans.ok{background:#E8F5E9;border-color:#66BB6A;color:#2E7D32;}
+.ans.no{background:#FFEBEE;border-color:#EF5350;color:#B71C1C;}
+
+/* ===== FEEDBACK ===== */
+.feedback{
+  font-family:'Fredoka One',cursive;font-size:1.35rem;
+  text-align:center;min-height:36px;margin:1rem 0 0.25rem;
+  animation:fadeIn 0.25s ease;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.feedback.ok{color:#388E3C;}
+.feedback.no{color:#D32F2F;}
+.nxtbtn{
+  margin-top:0.9rem;padding:11px 36px;
+  background:linear-gradient(135deg,#FF8A65,#FF5722);
+  border:none;border-radius:30px;
+  font-family:'Fredoka One',cursive;font-size:1.1rem;color:#fff;
+  cursor:pointer;box-shadow:0 4px 12px rgba(255,87,34,0.35);
+  transition:transform 0.1s;
+}
+.nxtbtn:active{transform:scale(0.96);}
+
+/* ===== COLOUR GAME ===== */
+.colour-target{width:110px;height:110px;border-radius:var(--r);margin:0.5rem auto 1.1rem;box-shadow:var(--sh);}
+.colanswers{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:340px;}
+.colans{
+  border:2.5px solid #E0D0C0;border-radius:var(--r);padding:12px 8px;
+  font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;text-align:center;
+  transition:transform 0.1s;
+}
+.colans .nl{font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:700;color:var(--soft);display:block;}
+.colans:active{transform:scale(0.93);}
+.colans.ok{background:#E8F5E9;border-color:#66BB6A;}
+.colans.no{background:#FFEBEE;border-color:#EF5350;}
+
+/* ===== MEMORY GAME ===== */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:380px;margin:0.5rem 0;}
+.mem-card{
+  aspect-ratio:1;border-radius:var(--r);border:2.5px solid #E0D0C0;
+  background:linear-gradient(135deg,#4FC3F7,#0288D1);
+  font-size:2rem;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;user-select:none;transition:transform 0.15s;
+  position:relative;
+}
+.mem-card:active{transform:scale(0.92);}
+.mem-card .front{display:none;}
+.mem-card.flip .front{display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.mem-card.flip{background:#fff;}
+.mem-card.matched{background:#E8F5E9;border-color:#66BB6A;cursor:default;}
+.mem-status{font-size:0.88rem;font-weight:800;color:var(--soft);margin-bottom:0.5rem;}
+
+/* ===== BIGGER GAME ===== */
+.big-compare{display:flex;gap:1.5rem;justify-content:center;align-items:flex-end;margin:0.5rem 0 1.2rem;width:100%;}
+.big-side{text-align:center;}
+.big-emoji{line-height:1;transition:font-size 0.3s;}
+.big-num{font-family:'Fredoka One',cursive;font-size:1.8rem;margin-top:6px;}
+.vs{font-size:1.1rem;font-weight:900;color:var(--soft);padding-bottom:10px;}
+.big-answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:280px;}
+
+/* ===== SCIENCE GAME ===== */
+.sci-q{font-family:'Fredoka One',cursive;font-size:1.3rem;text-align:center;margin:0.4rem 0;line-height:1.4;color:var(--text);}
+.sci-nl{font-size:0.85rem;font-weight:700;color:var(--grape);text-align:center;margin-bottom:1rem;}
+.sci-answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:360px;}
+.scians{
+  background:var(--bg);border:2.5px solid #E0D0C0;border-radius:var(--r);
+  padding:12px 8px;font-family:'Fredoka One',cursive;font-size:1.05rem;
+  cursor:pointer;text-align:center;transition:transform 0.1s;line-height:1.3;
+}
+.scians .nl{font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:700;color:var(--soft);display:block;margin-top:2px;}
+.scians:active{transform:scale(0.93);}
+.scians.ok{background:#E8F5E9;border-color:#66BB6A;}
+.scians.no{background:#FFEBEE;border-color:#EF5350;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:420px){
+  h1{font-size:2rem;}
+  .mcard .ico{font-size:2.2rem;}
+  .question{font-size:1.6rem;}
+  .obj{font-size:2rem;}
+  .ans{font-size:1.3rem;padding:11px 6px;}
+  .mem-grid{grid-template-columns:repeat(4,1fr);gap:6px;}
+  .nxtbtn{padding:10px 28px;}
+}
+@media(min-width:600px){
+  h1{font-size:3rem;}
+  .panel{padding:2rem 2rem 2.5rem;}
+  .obj{font-size:2.8rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="sun-deco"></div>
+  <div class="cloud1">☁️</div>
+  <div class="cloud2">☁️</div>
+  <h1>⭐ Leo's World ⭐</h1>
+  <p class="subtitle">Learn &amp; Play • Leren &amp; Spelen</p>
+</header>
+
+<!-- STAR BAR -->
+<div class="starbar">
+  <div class="star-display" id="starDisplay">⭐</div>
+  <div class="pill">Stars / Sterren: <b id="scoreVal">0</b></div>
+  <div class="pill">Right / Goed: <b id="correctVal">0</b></div>
+  <div class="pill">Tries / Pogingen: <b id="triedVal">0</b></div>
+</div>
+
+<!-- GAME MENU -->
+<nav class="menu" role="navigation" aria-label="Game selection">
+  <div class="mcard" id="mc-count" onclick="pick('count')">
+    <div class="ico">🔢</div>
+    <div class="lbl">Count!</div>
+    <div class="nlbl">Tellen!</div>
+  </div>
+  <div class="mcard" id="mc-add" onclick="pick('add')">
+    <div class="ico">➕</div>
+    <div class="lbl">Add!</div>
+    <div class="nlbl">Optellen!</div>
+  </div>
+  <div class="mcard" id="mc-colour" onclick="pick('colour')">
+    <div class="ico">🎨</div>
+    <div class="lbl">Colours!</div>
+    <div class="nlbl">Kleuren!</div>
+  </div>
+  <div class="mcard" id="mc-memory" onclick="pick('memory')">
+    <div class="ico">🧠</div>
+    <div class="lbl">Memory!</div>
+    <div class="nlbl">Geheugen!</div>
+  </div>
+  <div class="mcard" id="mc-bigger" onclick="pick('bigger')">
+    <div class="ico">🐘</div>
+    <div class="lbl">Bigger!</div>
+    <div class="nlbl">Groter!</div>
+  </div>
+  <div class="mcard" id="mc-science" onclick="pick('science')">
+    <div class="ico">🌤️</div>
+    <div class="lbl">Science!</div>
+    <div class="nlbl">Wetenschap!</div>
+  </div>
+</nav>
+
+<!-- GAME ARENA -->
+<main class="arena">
+
+  <!-- WELCOME -->
+  <div class="panel" id="panel-welcome">
+    <div class="welcome">
+      <div class="big">👆</div>
+      <p>Pick a game above!<br><span style="color:var(--grape)">Kies een spel hierboven!</span></p>
+    </div>
+  </div>
+
+  <!-- COUNT GAME -->
+  <div class="panel hide" id="panel-count">
+    <div class="qhint">Count them! • <span class="nl">Tel ze!</span></div>
+    <div class="objects" id="count-objects"></div>
+    <div class="qhint">How many? • <span class="nl">Hoeveel?</span></div>
+    <div class="answers" id="count-answers"></div>
+    <div class="feedback" id="count-fb"></div>
+    <button class="nxtbtn" id="count-next" style="display:none" onclick="render('count')">Next ➜ Volgende</button>
+  </div>
+
+  <!-- ADD GAME -->
+  <div class="panel hide" id="panel-add">
+    <div class="qhint">Add the numbers! • <span class="nl">Tel de getallen op!</span></div>
+    <div class="question" id="add-q"></div>
+    <div class="objects" id="add-objects"></div>
+    <div class="answers" id="add-answers"></div>
+    <div class="feedback" id="add-fb"></div>
+    <button class="nxtbtn" id="add-next" style="display:none" onclick="render('add')">Next ➜ Volgende</button>
+  </div>
+
+  <!-- COLOUR GAME -->
+  <div class="panel hide" id="panel-colour">
+    <div class="qhint">What colour is this? • <span class="nl">Welke kleur is dit?</span></div>
+    <div class="colour-target" id="col-swatch"></div>
+    <div class="colanswers" id="col-answers"></div>
+    <div class="feedback" id="colour-fb"></div>
+    <button class="nxtbtn" id="colour-next" style="display:none" onclick="render('colour')">Next ➜ Volgende</button>
+  </div>
+
+  <!-- MEMORY GAME -->
+  <div class="panel hide" id="panel-memory">
+    <div class="qhint">Find the pairs! • <span class="nl">Vind de paren!</span></div>
+    <div class="mem-status" id="mem-status">Pairs found / Paren gevonden: 0 / 6</div>
+    <div class="mem-grid" id="mem-grid"></div>
+    <div class="feedback" id="memory-fb"></div>
+    <button class="nxtbtn" id="memory-next" style="display:none" onclick="render('memory')">Play Again ➜ Opnieuw</button>
+  </div>
+
+  <!-- BIGGER GAME -->
+  <div class="panel hide" id="panel-bigger">
+    <div class="qhint">Which is MORE? • <span class="nl">Welke is MEER?</span></div>
+    <div class="big-compare" id="big-compare"></div>
+    <div class="big-answers answers" id="big-answers"></div>
+    <div class="feedback" id="bigger-fb"></div>
+    <button class="nxtbtn" id="bigger-next" style="display:none" onclick="render('bigger')">Next ➜ Volgende</button>
+  </div>
+
+  <!-- SCIENCE GAME -->
+  <div class="panel hide" id="panel-science">
+    <div class="qhint">Science! • <span class="nl">Wetenschap!</span></div>
+    <div class="sci-q" id="sci-q"></div>
+    <div class="sci-nl" id="sci-nl"></div>
+    <div class="sci-answers" id="sci-answers"></div>
+    <div class="feedback" id="science-fb"></div>
+    <button class="nxtbtn" id="science-next" style="display:none" onclick="render('science')">Next ➜ Volgende</button>
+  </div>
+
+</main>
+
+<script>
+// ===== DATA =====
+const EMOJIS = ['🍎','🌟','🎈','🐸','🦋','🍌','🌸','🐶','🚂','⚽','🍕','🐱','🦁','🌈','🍦'];
+const COLOURS = [
+  {en:'Red',    nl:'Rood',    hex:'#EF5350'},
+  {en:'Blue',   nl:'Blauw',   hex:'#42A5F5'},
+  {en:'Green',  nl:'Groen',   hex:'#66BB6A'},
+  {en:'Yellow', nl:'Geel',    hex:'#FFD54F'},
+  {en:'Orange', nl:'Oranje',  hex:'#FF8A65'},
+  {en:'Purple', nl:'Paars',   hex:'#9575CD'},
+  {en:'Pink',   nl:'Roze',    hex:'#F06292'},
+  {en:'Brown',  nl:'Bruin',   hex:'#A1887F'},
+  {en:'White',  nl:'Wit',     hex:'#E0E0E0'},
+  {en:'Black',  nl:'Zwart',   hex:'#424242'},
+];
+const SCIENCE = [
+  {en:'What do you see in the sky at night?',      nl:'Wat zie je 's nachts in de lucht?',         a:'Stars',    opts:[{en:'Stars',nl:'Sterren'},{en:'Fish',nl:'Vissen'},{en:'Cars',nl:'Auto\'s'},{en:'Bread',nl:'Brood'}]},
+  {en:'What gives us light and warmth?',           nl:'Wat geeft ons licht en warmte?',            a:'Sun',      opts:[{en:'Moon',nl:'Maan'},{en:'Sun',nl:'Zon'},{en:'Wind',nl:'Wind'},{en:'Rain',nl:'Regen'}]},
+  {en:'Where do fish live?',                       nl:'Waar leven vissen?',                        a:'Water',    opts:[{en:'Tree',nl:'Boom'},{en:'Sky',nl:'Lucht'},{en:'Water',nl:'Water'},{en:'Sand',nl:'Zand'}]},
+  {en:'What do plants need to grow?',              nl:'Wat hebben planten nodig om te groeien?',   a:'Water',    opts:[{en:'Water',nl:'Water'},{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Stone',nl:'Steen'}]},
+  {en:'Which animal has a very long neck?',        nl:'Welk dier heeft een heel lange nek?',       a:'Giraffe',  opts:[{en:'Elephant',nl:'Olifant'},{en:'Giraffe',nl:'Giraffe'},{en:'Dog',nl:'Hond'},{en:'Cat',nl:'Kat'}]},
+  {en:'What colour is the grass?',                 nl:'Welke kleur heeft gras?',                   a:'Green',    opts:[{en:'Blue',nl:'Blauw'},{en:'Red',nl:'Rood'},{en:'Green',nl:'Groen'},{en:'Yellow',nl:'Geel'}]},
+  {en:'What falls from the sky when it rains?',   nl:'Wat valt uit de lucht als het regent?',     a:'Water',    opts:[{en:'Milk',nl:'Melk'},{en:'Water',nl:'Water'},{en:'Sand',nl:'Zand'},{en:'Leaves',nl:'Bladeren'}]},
+  {en:'Which animal says "meow"?',                 nl:'Welk dier zegt "miauw"?',                   a:'Cat',      opts:[{en:'Dog',nl:'Hond'},{en:'Cat',nl:'Kat'},{en:'Cow',nl:'Koe'},{en:'Bird',nl:'Vogel'}]},
+  {en:'How many legs does a dog have?',            nl:'Hoeveel poten heeft een hond?',             a:'4',        opts:[{en:'2',nl:'2'},{en:'4',nl:'4'},{en:'6',nl:'6'},{en:'8',nl:'8'}]},
+  {en:'What do we call frozen water?',             nl:'Hoe noemen we bevroren water?',             a:'Ice',      opts:[{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Gas',nl:'Gas'},{en:'Steam',nl:'Stoom'}]},
+];
+const MEM_EMOJIS = ['🍎','🐸','⭐','🚂','🦋','🌈'];
+
+// ===== STATE =====
+let score=0, correct=0, tried=0;
+let currentGame=null, currentAnswer=null, answered=false;
+let memFlipped=[], memMatched=[], memCards=[], memLock=false;
+
+// ===== UTILS =====
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+function rnd(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+function updateUI(){
+  document.getElementById('scoreVal').textContent=score;
+  document.getElementById('correctVal').textContent=correct;
+  document.getElementById('triedVal').textContent=tried;
+  const s=score<2?'⭐':score<5?'⭐⭐':score<9?'⭐⭐⭐':score<14?'⭐⭐⭐⭐':'⭐⭐⭐⭐⭐';
+  document.getElementById('starDisplay').textContent=s;
+}
+function showFeedback(id, isOk){
+  const el=document.getElementById(id+'-fb');
+  if(isOk){el.textContent='🎉 Great job! Goed gedaan!';el.className='feedback ok';}
+  else{el.textContent='💙 Try again! Probeer het opnieuw!';el.className='feedback no';}
+  const nb=document.getElementById(id+'-next');
+  if(nb)nb.style.display='block';
+}
+function afterAnswer(id, isOk){
+  if(answered)return;
+  answered=true; tried++;
+  if(isOk){score++;correct++;}
+  updateUI();
+  showFeedback(id, isOk);
+}
+
+// ===== NAVIGATION =====
+const GAMES=['count','add','colour','memory','bigger','science'];
+function pick(g){
+  document.querySelectorAll('.mcard').forEach(c=>c.classList.remove('on'));
+  document.getElementById('mc-'+g).classList.add('on');
+  currentGame=g;
+  render(g);
+}
+function render(g){
+  GAMES.forEach(x=>{
+    document.getElementById('panel-'+x).classList.add('hide');
+  });
+  document.getElementById('panel-welcome').classList.add('hide');
+  document.getElementById('panel-'+g).classList.remove('hide');
+  answered=false;
+  currentAnswer=null;
+  if(g==='count')renderCount();
+  else if(g==='add')renderAdd();
+  else if(g==='colour')renderColour();
+  else if(g==='memory')renderMemory();
+  else if(g==='bigger')renderBigger();
+  else if(g==='science')renderScience();
+}
+
+// ===== COUNT GAME =====
+function renderCount(){
+  const n=rnd(2,9);
+  const emoji=EMOJIS[rnd(0,EMOJIS.length-1)];
+  currentAnswer=n;
+  const opts=shuffle(makeOpts(n,4,1,12));
+  // objects
+  const ob=document.getElementById('count-objects');
+  ob.innerHTML='';
+  for(let i=0;i<n;i++){
+    const s=document.createElement('span');
+    s.className='obj';s.textContent=emoji;
+    s.style.animationDelay=(i*0.06)+'s';
+    ob.appendChild(s);
+  }
+  // answers
+  const ab=document.getElementById('count-answers');
+  ab.innerHTML=opts.map(o=>`<div class="ans" onclick="checkNum(${o},'count',this)">${o}</div>`).join('');
+  document.getElementById('count-fb').textContent='';
+  document.getElementById('count-fb').className='feedback';
+  document.getElementById('count-next').style.display='none';
+}
+function checkNum(val, id, el){
+  if(answered)return;
+  const ok=val===currentAnswer;
+  el.classList.add(ok?'ok':'no');
+  if(!ok) document.querySelectorAll('#panel-'+id+' .ans').forEach(b=>{if(parseInt(b.textContent)===currentAnswer)b.classList.add('ok');});
+  afterAnswer(id,ok);
+}
+
+// ===== ADD GAME =====
+function renderAdd(){
+  const a=rnd(1,6), b=rnd(1,6);
+  currentAnswer=a+b;
+  const opts=shuffle(makeOpts(a+b,4,1,12));
+  document.getElementById('add-q').textContent=a+' + '+b+' = ?';
+  const ob=document.getElementById('add-objects');
+  ob.innerHTML='';
+  const e1=EMOJIS[rnd(0,EMOJIS.length-1)];
+  const e2=EMOJIS[rnd(0,EMOJIS.length-1)];
+  for(let i=0;i<a;i++){const s=document.createElement('span');s.className='obj';s.textContent=e1;s.style.animationDelay=(i*0.06)+'s';ob.appendChild(s);}
+  const plus=document.createElement('span');plus.style.cssText='font-size:1.8rem;color:var(--soft);padding:0 4px;';plus.textContent='+';ob.appendChild(plus);
+  for(let i=0;i<b;i++){const s=document.createElement('span');s.className='obj';s.textContent=e2;s.style.animationDelay=((a+i)*0.06)+'s';ob.appendChild(s);}
+  document.getElementById('add-answers').innerHTML=opts.map(o=>`<div class="ans" onclick="checkNum(${o},'add',this)">${o}</div>`).join('');
+  document.getElementById('add-fb').textContent='';
+  document.getElementById('add-fb').className='feedback';
+  document.getElementById('add-next').style.display='none';
+}
+
+// ===== COLOUR GAME =====
+function renderColour(){
+  const c=COLOURS[rnd(0,COLOURS.length-1)];
+  currentAnswer=c.en;
+  const sw=document.getElementById('col-swatch');
+  sw.style.background=c.hex;
+  const opts=shuffle([c,...COLOURS.filter(x=>x.en!==c.en).sort(()=>Math.random()-0.5).slice(0,3)]);
+  document.getElementById('col-answers').innerHTML=opts.map(o=>`<div class="colans" style="background:${o.hex}20;" onclick="checkColour('${o.en}',this)">
+    <span style="font-size:1rem;font-weight:800;">${o.en}</span>
+    <span class="nl">${o.nl}</span>
+  </div>`).join('');
+  document.getElementById('colour-fb').textContent='';
+  document.getElementById('colour-fb').className='feedback';
+  document.getElementById('colour-next').style.display='none';
+}
+function checkColour(val, el){
+  if(answered)return;
+  const ok=val===currentAnswer;
+  el.classList.add(ok?'ok':'no');
+  if(!ok) document.querySelectorAll('#panel-colour .colans').forEach(b=>{
+    if(b.textContent.includes(currentAnswer))b.classList.add('ok');
+  });
+  afterAnswer('colour',ok);
+}
+
+// ===== MEMORY GAME =====
+function renderMemory(){
+  memFlipped=[];memMatched=[];memLock=false;
+  const pairs=shuffle([...MEM_EMOJIS,...MEM_EMOJIS]);
+  memCards=pairs;
+  document.getElementById('mem-status').textContent='Pairs found / Paren gevonden: 0 / 6';
+  document.getElementById('memory-fb').textContent='';
+  document.getElementById('memory-fb').className='feedback';
+  document.getElementById('memory-next').style.display='none';
+  const grid=document.getElementById('mem-grid');
+  grid.innerHTML=pairs.map((e,i)=>`
+    <div class="mem-card" id="mc${i}" onclick="flipCard(${i})">
+      <div class="front">${e}</div>
+    </div>`).join('');
+}
+function flipCard(i){
+  if(memLock||memFlipped.includes(i)||memMatched.includes(i))return;
+  const card=document.getElementById('mc'+i);
+  card.classList.add('flip');
+  memFlipped.push(i);
+  if(memFlipped.length===2){
+    memLock=true;
+    const [a,b]=memFlipped;
+    if(memCards[a]===memCards[b]){
+      memMatched.push(a,b);
+      document.getElementById('mc'+a).classList.add('matched');
+      document.getElementById('mc'+b).classList.add('matched');
+      memFlipped=[];memLock=false;
+      const found=memMatched.length/2;
+      document.getElementById('mem-status').textContent='Pairs found / Paren gevonden: '+found+' / 6';
+      if(memMatched.length===12){
+        score+=3;correct+=3;tried++;updateUI();
+        const fb=document.getElementById('memory-fb');
+        fb.textContent='🎉🎉 All pairs found! Alle paren gevonden!';fb.className='feedback ok';
+        document.getElementById('memory-next').style.display='block';
+      }
+    } else {
+      setTimeout(()=>{
+        document.getElementById('mc'+a).classList.remove('flip');
+        document.getElementById('mc'+b).classList.remove('flip');
+        memFlipped=[];memLock=false;
+      },900);
+    }
+  }
+}
+
+// ===== BIGGER GAME =====
+function renderBigger(){
+  let a=rnd(1,9), b=rnd(1,9);
+  while(b===a)b=rnd(1,9);
+  currentAnswer=Math.max(a,b);
+  const emoji=EMOJIS[rnd(0,EMOJIS.length-1)];
+  const fsa=Math.round(14+a*3.5), fsb=Math.round(14+b*3.5);
+  document.getElementById('big-compare').innerHTML=`
+    <div class="big-side">
+      <div class="big-emoji" style="font-size:${fsa}px">${emoji}</div>
+      <div class="big-num">${a}</div>
+    </div>
+    <div class="vs">vs</div>
+    <div class="big-side">
+      <div class="big-emoji" style="font-size:${fsb}px">${emoji}</div>
+      <div class="big-num">${b}</div>
+    </div>`;
+  document.getElementById('big-answers').innerHTML=shuffle([a,b]).map(o=>`<div class="ans" onclick="checkNum(${o},'bigger',this)">${o}</div>`).join('');
+  document.getElementById('bigger-fb').textContent='';
+  document.getElementById('bigger-fb').className='feedback';
+  document.getElementById('bigger-next').style.display='none';
+}
+
+// ===== SCIENCE GAME =====
+function renderScience(){
+  const q=SCIENCE[rnd(0,SCIENCE.length-1)];
+  currentAnswer=q.a;
+  document.getElementById('sci-q').textContent=q.en;
+  document.getElementById('sci-nl').textContent=q.nl;
+  document.getElementById('sci-answers').innerHTML=shuffle(q.opts).map(o=>`
+    <div class="scians" onclick="checkSci('${o.en}',this)">
+      ${o.en}<span class="nl">${o.nl}</span>
+    </div>`).join('');
+  document.getElementById('science-fb').textContent='';
+  document.getElementById('science-fb').className='feedback';
+  document.getElementById('science-next').style.display='none';
+}
+function checkSci(val, el){
+  if(answered)return;
+  const ok=val===currentAnswer;
+  el.classList.add(ok?'ok':'no');
+  if(!ok) document.querySelectorAll('#panel-science .scians').forEach(b=>{
+    if(b.textContent.trim().startsWith(currentAnswer))b.classList.add('ok');
+  });
+  afterAnswer('science',ok);
+}
+
+// ===== HELPERS =====
+function makeOpts(correct, count, min, max){
+  const set=new Set([correct]);
+  let tries=0;
+  while(set.size<count&&tries<50){
+    const v=correct+[-3,-2,-1,1,2,3][rnd(0,5)];
+    if(v>=min&&v<=max)set.add(v);
+    tries++;
+  }
+  while(set.size<count){set.add(rnd(min,max));}
+  return [...set];
+}
+</script>
+</body>
+</html>
