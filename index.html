@@ -310,7 +310,7 @@ nav.menu{
 
 <script>
 // ===== DATA =====
-const EMOJIS = ['&#x1F34E;','&#x1F31F;','&#x1F388;','&#x1F438;','&#x1F98B;','&#x1F34C;','&#x1F338;','&#x1F436;','&#x1F682;','&#x26BD;','&#x1F355;','&#x1F431;','&#x1F981;','&#x1F308;','&#x1F366;'];
+const EMOJIS = ['\u{1F34E}','\u{1F31F}','\u{1F388}','\u{1F438}','\u{1F98B}','\u{1F34C}','\u{1F338}','\u{1F436}','\u{1F682}','\u{26BD}','\u{1F355}','\u{1F431}','\u{1F981}','\u{1F308}','\u{1F366}'];
 const COLOURS = [
   {en:'Red',    nl:'Rood',    hex:'#EF5350'},
   {en:'Blue',   nl:'Blauw',   hex:'#42A5F5'},
@@ -324,7 +324,7 @@ const COLOURS = [
   {en:'Black',  nl:'Zwart',   hex:'#424242'},
 ];
 const SCIENCE = [
-  {en:'What do you see in the sky at night?',      nl:'Wat zie je 's nachts in de lucht?',         a:'Stars',    opts:[{en:'Stars',nl:'Sterren'},{en:'Fish',nl:'Vissen'},{en:'Cars',nl:'Auto\'s'},{en:'Bread',nl:'Brood'}]},
+  {en:'What do you see in the sky at night?',      nl:'Wat zie je \'s nachts in de lucht?',         a:'Stars',    opts:[{en:'Stars',nl:'Sterren'},{en:'Fish',nl:'Vissen'},{en:'Cars',nl:"Auto's"},{en:'Bread',nl:'Brood'}]},
   {en:'What gives us light and warmth?',           nl:'Wat geeft ons licht en warmte?',            a:'Sun',      opts:[{en:'Moon',nl:'Maan'},{en:'Sun',nl:'Zon'},{en:'Wind',nl:'Wind'},{en:'Rain',nl:'Regen'}]},
   {en:'Where do fish live?',                       nl:'Waar leven vissen?',                        a:'Water',    opts:[{en:'Tree',nl:'Boom'},{en:'Sky',nl:'Lucht'},{en:'Water',nl:'Water'},{en:'Sand',nl:'Zand'}]},
   {en:'What do plants need to grow?',              nl:'Wat hebben planten nodig om te groeien?',   a:'Water',    opts:[{en:'Water',nl:'Water'},{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Stone',nl:'Steen'}]},
@@ -335,7 +335,7 @@ const SCIENCE = [
   {en:'How many legs does a dog have?',            nl:'Hoeveel poten heeft een hond?',             a:'4',        opts:[{en:'2',nl:'2'},{en:'4',nl:'4'},{en:'6',nl:'6'},{en:'8',nl:'8'}]},
   {en:'What do we call frozen water?',             nl:'Hoe noemen we bevroren water?',             a:'Ice',      opts:[{en:'Fire',nl:'Vuur'},{en:'Ice',nl:'IJs'},{en:'Gas',nl:'Gas'},{en:'Steam',nl:'Stoom'}]},
 ];
-const MEM_EMOJIS = ['&#x1F34E;','&#x1F438;','&#x2B50;','&#x1F682;','&#x1F98B;','&#x1F308;'];
+const MEM_EMOJIS = ['\u{1F34E}','\u{1F438}','\u{2B50}','\u{1F682}','\u{1F98B}','\u{1F308}'];
 
 // ===== STATE =====
 let score=0, correct=0, tried=0;
@@ -349,7 +349,7 @@ function updateUI(){
   document.getElementById('scoreVal').textContent=score;
   document.getElementById('correctVal').textContent=correct;
   document.getElementById('triedVal').textContent=tried;
-  const s=score<2?'&#x2B50;':score<5?'&#x2B50;&#x2B50;':score<9?'&#x2B50;&#x2B50;&#x2B50;':score<14?'&#x2B50;&#x2B50;&#x2B50;&#x2B50;':'&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;';
+  const s=score<2?'\u{2B50}':score<5?'&#x2B50;&#x2B50;':score<9?'&#x2B50;&#x2B50;&#x2B50;':score<14?'&#x2B50;&#x2B50;&#x2B50;&#x2B50;':'&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;';
   document.getElementById('starDisplay').textContent=s;
 }
 function showFeedback(id, isOk){
